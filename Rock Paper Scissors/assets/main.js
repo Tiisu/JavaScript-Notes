@@ -21,7 +21,7 @@ function getComputerChoice(){
 // A functon to get Human Score
 
 function getHumanChoice(){
-    let userChoice = prompt('Enter your choice ').toLocaleLowerCase();
+    userChoice = prompt('Enter your choice ').toLocaleLowerCase();
     if (userChoice == 'rock'){
         return userChoice;
     } else if (userChoice == 'paper') {
@@ -34,8 +34,8 @@ function getHumanChoice(){
     // userChoice.toLocaleLowerCase()
 }
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
+// let humanChoice = getHumanChoice();
+// let computerChoice = getComputerChoice();
 
 // A functon to play a round
 function playRound(humanChoice , computerChoice){
@@ -65,24 +65,32 @@ function playRound(humanChoice , computerChoice){
     }
     else if (computerChoice === "scissors" && humanChoice === "paper") {
         alert('Computer has won')
-
         computerScore += 1;
 
     }
 
 }
 
-
-
 function playGame(){
     let numOfRounds = 5;
     let numOfRoundsPlayed = 0;
-    while ( numOfRoundsPlayed <= numOfRounds) {
-        playRound(humanChoice,computerChoice )  
+    for ( let i = 1; i <= numOfRounds; i++){
+        playRound(getHumanChoice(), getComputerChoice());
+        if (i == 5) {
+            alert(
+                'The game has ended Play again'
+            )
+        }
 
+     // console.log(i)
     }
-    
-    
+
+    alert(`You scored ${humanScore} while the computer scored ${computerScore}`)
+    if (humanScore > computerScore) {
+        alert('You have won')
+    }else {
+        alert('Computer is the winner')
+    }
 
 }
 // getHumanChoice()
