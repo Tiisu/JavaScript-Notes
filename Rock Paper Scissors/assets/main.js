@@ -1,5 +1,8 @@
 
-
+const rockBtn = document.getElementById('btn0');
+const paperBtn = document.getElementById('btn1');
+const scissorsBtn = document.getElementById('btn2');
+const playBtn = document.getElementById('btnPlay');
 // A fucntion to get computer choice
 
 let humanScore  = 0;
@@ -21,16 +24,19 @@ function getComputerChoice(){
 // A functon to get Human Score
 
 function getHumanChoice(){
-    userChoice = prompt('Enter your choice ').toLocaleLowerCase();
-    if (userChoice == 'rock'){
-        return userChoice;
-    } else if (userChoice == 'paper') {
-        return userChoice;
-    } else if (userChoice == 'scissors'){
-        return userChoice;
-    } else{
-        return 'You have entered a wrong choice';
-    }
+    rockBtn.addEventListener('click', (() => {
+        let  humanChoice = 'rock';
+        return humanChoice;
+    }));
+    paperBtn.addEventListener('click', (() => {
+        let humanChoice = paperBtn.textContent;
+        return humanChoice;
+    }));
+    scissorsBtn.addEventListener('click', (() => {
+        let humanChoice = 'scissors';
+        return humanChoice;
+    }));
+    
     // userChoice.toLocaleLowerCase()
 }
 
@@ -76,23 +82,25 @@ function playGame(){
     let numOfRoundsPlayed = 0;
     for ( let i = 1; i <= numOfRounds; i++){
         playRound(getHumanChoice(), getComputerChoice());
-        if (i == 5) {
-            alert(
-                'The game has ended Play again'
-            )
-        }
+        // if (i == 5) {
+        //     alert(
+        //         'The game has ended Play again'
+        //     )
+        // }
 
      // console.log(i)
     }
 
-    alert(`You scored ${humanScore} while the computer scored ${computerScore}`)
-    if (humanScore > computerScore) {
-        alert('You have won')
-    }else {
-        alert('Computer is the winner')
-    }
+    // alert(`You scored ${humanScore} while the computer scored ${computerScore}`)
+    // if (humanScore > computerScore) {
+    //     alert('You have won')
+    // }else {
+    //     alert('Computer is the winner')
+    // }
 
 }
+
+playBtn.addEventListener('click',playGame() );
 // getHumanChoice()
-playGame()
+// playGame()
 // getComputerChoice()w
