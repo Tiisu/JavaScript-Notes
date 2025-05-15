@@ -82,11 +82,11 @@ function playGame(){
     let numOfRoundsPlayed = 0;
     for ( let i = 1; i <= numOfRounds; i++){
         playRound(getHumanChoice(), getComputerChoice());
-        // if (i == 5) {
-        //     alert(
-        //         'The game has ended Play again'
-        //     )
-        // }
+        if (i == 5) {
+            alert(
+                'The game has ended Play again'
+            )
+        }
 
      // console.log(i)
     }
